@@ -2,4 +2,4 @@
 Developers
 ==========
 
-* Stephan Seitz <stephan.lauf@yahoo.de>
+* Stephan Seitz <stephan.seitz@fau.de>
