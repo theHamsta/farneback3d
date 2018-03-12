@@ -2,6 +2,8 @@
 farneback3d
 ===========
 
+.. image:: https://badge.fury.io/py/farneback3d.svg
+    :target: https://badge.fury.io/py/farneback3d
 .. image:: https://travis-ci.org/theHamsta/farnback3d.svg?branch=master
     :target: https://travis-ci.org/theHamsta/farnback3d
 
@@ -33,6 +35,8 @@ Usage::
 
 C++ interface
 ===========
+
+To be implemented...
 
 
 Future plans
