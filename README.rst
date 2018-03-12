@@ -16,11 +16,13 @@ Python interface
 ================
 
 The project uses `pycuda <https://github.com/inducer/pycuda>`_ to provide a pure-python package available on PyPi
+
 .. code-block:: bash
 
     pip install farneback3d
 
 Usage
+
 .. code-block:: python
 
     import farneback3d
