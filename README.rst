@@ -19,6 +19,16 @@ The project uses `pycuda <https://github.com/inducer/pycuda`_ to provide a pure-
 Usage::
     import farneback3d
 
+    ... # create some numpy volumes vol0 and vol1 (can also be pycuda GPUArrays) 
+
+    # set parameters for optical flow
+    optflow = farneback3d.Farneback(
+        levels=5,
+        num_iterations=5,
+        poly_n=5
+        )
+    # calculate frame-to-frame flow between vol0 and vol1
+    flow = optflow.calc_flow(vol0, vol1)
 
 
 C++ interface
