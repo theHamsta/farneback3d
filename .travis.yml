@@ -12,26 +12,24 @@ python:
 
 # matrix:
 #   fast_finish: true
-env:
-  - CUDA_VER=9.1
-    
 
-install:
+env:
+  matrix:
+    - CUDA_VERSION_MAJOR="8" CUDA_VERSION_MINOR="0" CUDA_PKG_LONGVERSION="${CUDA_VERSION_MAJOR}.${CUDA_VERSION_MINOR}.61-1" CUDA_PKG_VERSION="${CUDA_VERSION_MAJOR}-${CUDA_VERSION_MINOR}"
+ 
+ install:
+  - CUDA_REPO_PKG=cuda-repo-ubuntu1404_${CUDA_PKG_LONGVERSION}_amd64.deb
+  - wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/$CUDA_REPO_PKG
+  - sudo dpkg -i $CUDA_REPO_PKG
+  - rm $CUDA_REPO_PKG
+  - sudo apt-get -y update
+  - sudo apt-get install -y --no-install-recommends  cuda-core-$CUDA_PKG_VERSION  cuda-cudart-dev-$CUDA_PKG_VERSION  cuda-cublas-dev-$CUDA_PKG_VERSION cuda-curand-dev-$CUDA_PKG_VERSION
+  - sudo ln -s /usr/local/cuda-${CUDA_VERSION_MAJOR}.${CUDA_VERSION_MINOR} /usr/local/cuda
   - pip install --upgrade pip
   - pip install --ignore-installed setuptools
   - pip install --ignore-installed wheel
   - pip install --ignore-installed pytest-cov
   - pip install --ignore-installed pytest
-  - wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1204/x86_64/cuda-repo-ubuntu1204_${CUDA_VER}_amd64.deb
-  - sudo dpkg -i cuda-repo-ubuntu1204_${CUDA_VER}_amd64.deb
-  - CUDA_APT_VER=${CUDA_VER%-*}
-  - CUDA_APT_VER=${CUDA_APT_VER/./-}
-  - CUDA_PACKAGES="cuda-drivers cuda-core-${CUDA_APT_VER} cuda-cudart-dev-${CUDA_APT_VER} cuda-cufft-dev-${CUDA_APT_VER}"
-  - echo "Installing ${CUDA_PACKAGES}"
-  - sudo apt-get install -y ${CUDA_PACKAGES}
-  - export CUDA_HOME=/usr/local/cuda-${CUDA_VER%%-*}
-  - export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}
-  - export PATH=${CUDA_HOME}/bin:${PATH}
   - pip install -e .
 
 script:
