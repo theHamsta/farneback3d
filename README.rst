@@ -2,6 +2,9 @@
 farneback3d
 ===========
 
+.. image:: https://travis-ci.org/theHamsta/farnback3d.svg?branch=master
+    :target: https://travis-ci.org/theHamsta/farnback3d
+
 
 A CUDA implementation of the Farneback optical flow algorithm [1] for the calculation of dense volumetric flow fields. Since this algorithm is based on the approximation of the signal by polynomial expansion it is especial suited for the motion estimation in smooth signals without clear edges.
 
