@@ -13,12 +13,16 @@ A CUDA implementation of the Farneback optical flow algorithm [1] for the calcul
 To know more about the implementation have a look on `this OpenCV class: <https://docs.opencv.org/3.3.0/de/d9e/classcv_1_1FarnebackOpticalFlow.html>`_ that was used as inspiration for this implementation.
 
 Python interface
-===========
+================
 
-The project uses `pycuda <https://github.com/inducer/pycuda`_ to provide a pure-python package available on PyPi::
+The project uses `pycuda <https://github.com/inducer/pycuda>`_ to provide a pure-python package available on PyPi
+.. code-block:: bash
+
     pip install farneback3d
 
-Usage::
+Usage
+.. code-block:: python
+
     import farneback3d
 
     ... # create some numpy volumes vol0 and vol1 (can also be pycuda GPUArrays) 
@@ -34,13 +38,13 @@ Usage::
 
 
 C++ interface
-===========
+=============
 
 To be implemented...
 
 
 Future plans
-===========
+=============
 
 The current implementation uses a naive approach to perform the necessary convolutions.
 The algorithm could be sped up drastically by performing separable convolutions along each coordinate axis.
