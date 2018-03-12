@@ -36,5 +36,4 @@ os:
 addons:
   apt:
     packages:
-    - python-pycuda
-    - python3-pycuda
+    - nvidia-cuda-toolkit
