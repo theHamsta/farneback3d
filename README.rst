@@ -3,17 +3,30 @@ farneback3d
 ===========
 
 
-Add a short description here!
+A CUDA implementation of the Farneback optical flow algorithm [1] for the calculation of dense volumetric flow fields. Since this algorithm is based on the approximation of the signal by polynomial expansion it is especial suited for the motion estimation in smooth signals without clear edges.
 
+To know more about the implementation have a look on _this OpenCV class: https://docs.opencv.org/3.3.0/de/d9e/classcv_1_1FarnebackOpticalFlow.html that was used as inspiration for this implementation.
 
-Description
+Python interface
 ===========
 
-A longer description of your project goes here...
+The project uses _pycuda: https://github.com/inducer/pycuda to provide a pure-python package available on PyPi::
+    pip install farneback3d
+
+Usage::
+    import farneback3d
 
 
-Note
-====
 
-This project has been set up using PyScaffold 2.5.7.post0.dev6+ngcef9d7f. For details and usage
-information on PyScaffold see http://pyscaffold.readthedocs.org/.
+C++ interface
+===========
+
+
+Future plans
+===========
+
+The current implementation uses a naive approach to perform the necessary convolutions.
+The algorithm could be sped up drastically by performing separable convolutions along each coordinate axis.
+
+
+[1] Farnebäck, Gunnar. "Two-frame motion estimation based on polynomial expansion." Scandinavian conference on Image analysis. Springer, Berlin, Heidelberg, 2003.
