@@ -29,11 +29,14 @@ Usage:
 
     ... # create some numpy volumes vol0 and vol1 (can also be pycuda GPUArrays) 
 
-    # set parameters for optical flow
+    # set parameters for optical flow (parameters have the same meaning as in the OpenCV implementation)
     optflow = farneback3d.Farneback(
-        levels=5,
-        num_iterations=5,
-        poly_n=5
+            pyr_scale=0.8,         # Scaling between multi-scale pyramid levels
+            levels=6,              # Number of multi-scale levels
+            num_iterations=5,      # Iterations on each multi-scale level
+            winsize=9,             # Window size for Gaussian filtering of polynomial coefficients
+            poly_n=5,              # Size of window for weighted least-square estimation of polynomial coefficients
+            poly_sigma=1.2,        # Sigma for Gaussian weighting of least-square estimation of polynomial coefficients
         )
 
     # calculate frame-to-frame flow between vol0 and vol1
@@ -52,5 +55,7 @@ Future plans
 The current implementation uses a naive approach to perform the necessary convolutions.
 The algorithm could be sped up drastically by performing separable convolutions along each coordinate axis.
 
+References
+==========
 
 .. [1] Farnebäck, Gunnar. "Two-frame motion estimation based on polynomial expansion." Scandinavian conference on Image analysis. Springer, Berlin, Heidelberg, 2003.
