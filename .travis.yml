@@ -19,7 +19,7 @@ cache:
     apt: true
  
 install:
-  - bash ./travis/install_cuda.sh
+  - sudo bash ./travis/install_cuda.sh
   - pip install --upgrade pip
   - pip install --ignore-installed setuptools
   - pip install --ignore-installed wheel
