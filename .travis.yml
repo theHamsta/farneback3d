@@ -1,4 +1,6 @@
 language: python
+sudo: required
+
 python:
   - "2.6"
   - "2.7" 
@@ -10,11 +12,13 @@ python:
   - "3.7-dev"  
   - "nightly"
 
-# matrix:
-#   fast_finish: true
+matrix:
+  fast_finish: true
 
+cache:
+    apt: true
  
- install:
+install:
   - bash ./travis/install_cuda.sh
   - pip install --upgrade pip
   - pip install --ignore-installed setuptools
