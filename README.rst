@@ -10,7 +10,9 @@ farneback3d
 
 A CUDA implementation of the Farneback optical flow algorithm [1]_ for the calculation of dense volumetric flow fields. Since this algorithm is based on the approximation of the signal by polynomial expansion it is especial suited for the motion estimation in smooth signals without clear edges.
 
-To know more about the implementation have a look on `this OpenCV class <https://docs.opencv.org/3.3.0/de/d9e/classcv_1_1FarnebackOpticalFlow.html>`_ that was used as inspiration for this implementation.
+To know more about the implementation have a look on `this OpenCV class <https://docs.opencv.org/3.3.0/de/d9e/classcv_1_1FarnebackOpticalFlow.html>`_ that was used as a template for this implementation.
+
+Development takes place on `Github <https://github.com/theHamsta/farneback3d>`_.
 
 Python interface
 ================
