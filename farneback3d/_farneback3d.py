@@ -30,7 +30,7 @@ class Farneback:
                  num_iterations=5,
                  poly_n=5,
                  poly_sigma=1.2,
-                 use_gaussian_kernel:  bool= True,
+                 use_gaussian_kernel:  bool = True,
                  use_initial_flow=None,
                  quit_at_level=None,
                  use_gpu=True,
@@ -114,7 +114,7 @@ class Farneback:
         dim = len(cur_vol.shape)
 
         assert dim == 3, 'wrong dimension'
-        assert self.quit_at_level < self.levels
+        assert self.quit_at_level is None or self.quit_at_level < self.levels
         assert cur_vol.shape == next_vol.shape
         assert cur_vol.dtype == np.float32, 'wrong dtype'
         assert next_vol.dtype == np.float32, 'wrong dtype'

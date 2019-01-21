@@ -12,6 +12,7 @@ __license__ = "none"
 
 TOLERANCE = 1e-2
 
+
 def test_moving_cube():
 
     movement_vector = [0.3, 0.1, 1]
@@ -31,6 +32,7 @@ def test_moving_cube():
     for axis in range(len(movement_vector)):
         print(np.max(flow[2-axis]) - movement_vector[axis])
         assert abs(np.max(flow[2-axis]) - movement_vector[axis]) < TOLERANCE
+
 
 def test_moving_cube_larger_distance():
 
@@ -52,6 +54,19 @@ def test_moving_cube_larger_distance():
         print(np.max(flow[2-axis]) - movement_vector[axis])
         assert abs(np.max(flow[2-axis]) - movement_vector[axis]) < TOLERANCE
 
+
+def test_default_values():
+
+    a = np.ones([20] * 3)
+    b = np.ones([20] * 3)
+
+    optflow = farneback3d.Farneback()
+
+    rtn = optflow.calc_flow(a, b)
+    assert rtn is not None
+
+
 if __name__ == "__main__":
-    test_moving_cube()
-    test_moving_cube_larger_distance()
+    # test_moving_cube()
+    # test_moving_cube_larger_distance()
+    test_default_values()
