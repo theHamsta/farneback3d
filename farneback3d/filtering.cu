@@ -39,7 +39,7 @@ __global__ void convolve3d_gauss(float *__restrict__ in,
                                  float sigmaX,
                                  float sigmaY,
                                  float sigmaZ,
-                                 bool filterNonZerosOnly)
+                                 int filterNonZerosOnly)
 {
     int x = blockIdx.x * blockDim.x + threadIdx.x;
     int y = blockIdx.y * blockDim.y + threadIdx.y;
@@ -114,7 +114,7 @@ __global__ void convolve3d_gauss_with_mask(float *__restrict__ in,
                                            float sigmaX,
                                            float sigmaY,
                                            float sigmaZ,
-                                           bool filterNonZerosOnly)
+                                           int filterNonZerosOnly)
 {
     int x = blockIdx.x * blockDim.x + threadIdx.x;
     int y = blockIdx.y * blockDim.y + threadIdx.y;

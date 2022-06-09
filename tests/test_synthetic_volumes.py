@@ -57,8 +57,8 @@ def test_moving_cube_larger_distance():
 
 def test_default_values():
 
-    a = np.ones([20] * 3)
-    b = np.ones([20] * 3)
+    a = np.ones([20] * 3, dtype=np.float32)
+    b = np.ones([20] * 3, dtype=np.float32)
 
     optflow = farneback3d.Farneback()
 
@@ -67,6 +67,6 @@ def test_default_values():
 
 
 if __name__ == "__main__":
-    # test_moving_cube()
-    # test_moving_cube_larger_distance()
+    test_moving_cube()
+    test_moving_cube_larger_distance()
     test_default_values()
