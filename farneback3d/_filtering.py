@@ -79,7 +79,7 @@ def _call_smooth_cuda_gauss(gpuimg, gpuresult, sigma, kernelsize,  filter_mask=N
 
 
 def smooth_cuda_gauss(img, sigma, kernelsize, rtn_gpu=None, filter_mask=None):
-    if not rtn_gpu:
+    if rtn_gpu is None:
         rtn_gpu = gpuarray.GPUArray(img.shape, np.float32)
 
     if isinstance(img, np.ndarray):
